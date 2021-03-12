@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tip Calculator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    </head>
+
+<body class="bg-dark">
+    <div class="container">
+            <div class="container" style="max-width: max-content; margin-top: 5%;">
+                <div class="card" style="justify-self: center;">
+                    <div class="card-body text-center mx-5">
+                      <h1 class="heading">Tip Calculator</h1>
+                <br>
+                <form id="tip-form">
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control" id="totalbill" placeholder="Total Bill">
+                      </div>
+                <br>
+                <hr>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio10" value="10">
+                    <label class="form-check-label" for="inlineRadio10">10%</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio15" value="15">
+                    <label class="form-check-label" for="inlineRadio15">15%</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio20" value="20">
+                    <label class="form-check-label" for="inlineRadio20">20%</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio25" value="25">
+                    <label class="form-check-label" for="inlineRadio25">25%</label>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Tip Amount</span>
+                    <input type="number" class="form-control" id="tipAmount" disabled>
+                  </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Total With Tip</span>
+                    <input type="number" class="form-control" id="calcBill" disabled>
+                  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+</body>
+</html>
+
+<script>
+
+const totalBill = document.querySelector('#totalbill')
+const radio10 = document.querySelector('#radio10')
+const radio15 = document.querySelector('#radio15')
+const radio20 = document.querySelector('#radio20')
+const radio25 = document.querySelector('#radio25')
+const tipAmount = document.querySelector('#tipAmount')
+const calcBill = document.querySelector('#calcBill')
+
+let finalTip;
+let userInput;
+let tipPercent;
+let calcTotal;
+
+totalBill.addEventListener('keyup', () => {userInput = Number(totalBill.value); finalCalc()})
+radio10.addEventListener('click', () => tipPercent = Number(radio10.value)/100)
+radio15.addEventListener('click', () => tipPercent = Number(radio15.value)/100)
+radio20.addEventListener('click', () => tipPercent = Number(radio20.value)/100)
+radio25.addEventListener('click', () => tipPercent = Number(radio25.value)/100)
+
+function tipCalc () {
+    finalTip = userInput * tipPercent
+}
+
+function totalWithTip () {
+    calcTotal = userInput + finalTip
+}
+
+function finalCalc () {
+    tipCalc()
+    totalWithTip()
+    tipAmount.value = finalTip.toFixed(2);
+    calcBill.value = calcTotal.toFixed(2);
+}
+
+document.querySelector('#tip-form').onchange = finalCalc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const totalBill = document.querySelector('#totalbill');
+// const tipAmount = document.querySelector('#tip-amount');
+// const calcBill = document.querySelector('#calcBill');
+// const radioTen = document.querySelector('#radio10').value;
+// const radioFifteen = document.querySelector('#radio15').value;
+// const radioTwenty = document.querySelector('#radio20').value;
+// const radioTwentyFive = document.querySelector('#radio25').value;
+
+
+// const bill = Number((totalBill).value);
+// const tip = ((tipAmount).value);
+// // const tipValue = ;
+// const finalBill = bill + tipValue;
+// consolelog(finalBill)
+
+// totalBill.addEventListener()
+
+// User enters total bill amount
+// User selects tip amount
+// if user selects 10% take total bill * (10/100) display tip amount + total bill amount
+// if user selects 15% take total bill * (15/100) display tip amount + total bill amount
+// if user selects 20% take total bill * (20/100) display tip amount + total bill amount
+// if user selects 25% take total bill * (25/100) display tip amount + total bill amount
+
+</script>
